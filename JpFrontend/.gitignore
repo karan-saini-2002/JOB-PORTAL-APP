@@ -10,8 +10,7 @@ lerna-debug.log*
 /JpBackend/JpFrontend/node_modules
 /JpBackend/node_modules
 /JpBackend/config
-dist
-dist-ssr
+
 *.local
 
 # secret
