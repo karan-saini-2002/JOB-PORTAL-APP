@@ -8,7 +8,11 @@ import cors from "cors";
 import { errorMiddleware } from "./middlewares/error.js";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
-import path from "path";
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const app = express();
 config({ path: "./config/config.env" });
 
@@ -25,9 +29,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  app.use(express.static(path.resolve(__dirname, "frontend", "dist"))); 
-  res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-  });
+  const staticDirectory = join(__dirname, "JpFrontend", "dist");
+  app.use(express.static(staticDirectory));
+  res.sendFile(join(staticDirectory, "index.html"));
+});
   
 
 app.use(
