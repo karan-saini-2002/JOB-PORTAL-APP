@@ -7,11 +7,15 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modulesss
+/JpBackend/JpFrontend/node_modules
+/JpBackend/node_modules
+/JpBackend/config
+dist
+dist-ssr
 *.local
 
 # secret
-config/config.env
+
 
 
 
